@@ -39,6 +39,7 @@
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
+        /* 更新 Logo 圖示大小和樣式 */
         .logo-icon {
             width: 32px; 
             height: 32px;
@@ -47,10 +48,24 @@
             margin-right: 8px;
             object-fit: contain;
         }
-        .hero-logo {
-            width: 250px; 
-            height: auto;
+        /* Hero Section 的 LINE icon 樣式 */
+        .hero-line-icon {
+            font-size: 150px; /* 讓 LINE icon 變大 */
+            color: #4a90e2; /* 顏色 */
             filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1));
+        }
+        /* About Section 的 Logo 樣式 */
+        .about-logo {
+            width: 100%; /* 佔滿父層寬度 */
+            max-width: 400px; /* 最大寬度限制 */
+            height: auto;
+            border-radius: 16px; /* 圓角 */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* 陰影 */
+            transform: rotate(-2deg); /* 輕微旋轉 */
+            transition: transform 0.5s ease; /* 過渡動畫 */
+        }
+        .about-logo:hover {
+            transform: rotate(0deg); /* 懸停時恢復 */
         }
     </style>
 </head>
@@ -59,7 +74,7 @@
     <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-brand-dark flex items-center gap-2">
-                <img src="logo.png" alt="口袋教練 Logo" class="logo-icon"> 口袋教練
+                <i class="fa-brands fa-line logo-icon"></i> 口袋教練
             </a>
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#features" class="hover:text-brand-DEFAULT transition">產品優勢</a>
@@ -83,7 +98,7 @@
                     <span class="text-brand-DEFAULT">口袋教練</span> 隨時在線。
                 </h1>
                 <p class="text-lg text-slate-600 md:w-4/5 leading-relaxed">
-                    結合大型語言模型與專業運動資料庫，透過 LINE 就能獲得即時、科學的 <strong class="text-brand-dark">器材訓練</strong> 建議。就像把專業教練放進口袋裡。
+                    結合大型語言模型與專業運動資料庫，透過 LINE 就能獲得即時、科學的 <span class="font-bold text-brand-dark">器材訓練</span> 建議。就像把專業教練放進口袋裡。
                 </p>
                 <div class="flex flex-col md:flex-row gap-4 justify-center md:justify-start pt-4">
                     <a href="https://lin.ee/tWktC2Y" target="_blank" class="bg-[#06C755] text-white text-lg px-8 py-4 rounded-full font-bold hover:bg-[#05b34c] transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center gap-3">
@@ -97,7 +112,7 @@
             </div>
             <div class="md:w-1/2 flex justify-center relative">
                 <div class="absolute w-72 h-72 bg-brand-light rounded-full filter blur-3xl opacity-50 -z-10 top-10 right-10 animate-pulse"></div>
-                <img src="logo.png" alt="口袋教練 Logo" class="relative z-10 hero-logo floating">
+                <i class="fa-brands fa-line relative z-10 hero-line-icon floating"></i>
             </div>
         </div>
     </section>
@@ -116,7 +131,7 @@
                     </div>
                     <h3 class="text-xl font-bold text-slate-800 mb-3">RAG 檢索增強生成</h3>
                     <p class="text-slate-600 leading-relaxed">
-                        不同於一般 ChatGPT，我們外掛了專業運動科學資料庫。AI 會先檢索權威文獻，再生成回答，確保知識的正確性與 <strong class="text-brand-DEFAULT">器材訓練</strong> 的準確性。
+                        不同於一般 ChatGPT，我們外掛了專業運動科學資料庫。AI 會先檢索權威文獻，再生成回答，確保知識的正確性與 <span class="font-bold text-brand-DEFAULT">器材訓練</span> 的準確性。
                     </p>
                 </div>
 
@@ -126,7 +141,7 @@
                     </div>
                     <h3 class="text-xl font-bold text-slate-800 mb-3">24/7 即時回應</h3>
                     <p class="text-slate-600 leading-relaxed">
-                        半夜想健身？突然不知道怎麼安排 <strong class="text-brand-DEFAULT">器材課表</strong>？無需預約，打開 LINE 就能立即獲得解答，解決您的燃眉之急。
+                        半夜想健身？突然不知道怎麼安排 <span class="font-bold text-brand-DEFAULT">器材課表</span>？無需預約，打開 LINE 就能立即獲得解答，解決您的燃眉之急。
                     </p>
                 </div>
 
@@ -146,13 +161,13 @@
     <section id="about" class="py-20 bg-slate-50">
         <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
             <div class="md:w-1/2">
-                <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="健身思考" class="rounded-2xl shadow-2xl transform -rotate-2 hover:rotate-0 transition duration-500">
+                <img src="logo.png" alt="口袋教練 Logo" class="about-logo">
             </div>
             <div class="md:w-1/2 space-y-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-800">從痛點出發：<br>打造屬於每個人的口袋教練</h2>
                 <p class="text-slate-600 text-lg leading-relaxed">
                     「健身一定要花大錢請教練嗎？」<br>
-                    「網路上的 <strong class="text-brand-dark">器材訓練</strong> 資訊文，到底哪個才是對的？」
+                    「網路上的 <span class="font-bold text-brand-dark">器材訓練</span> 資訊農場文，到底哪個才是對的？」
                 </p>
                 <p class="text-slate-600 leading-relaxed">
                     這是在產品開發初期，我們最常聽到的心聲。市面上的私人教練費用高昂，而自我摸索又容易受傷或走彎路。
@@ -207,7 +222,7 @@
             </div>
             <p class="text-xs text-slate-500">
                 &copy; 2025 Pocket Coach. All rights reserved. <br>
-                本服務由 AI 提供 <strong>器材訓練</strong> 建議，若有身體不適請尋求專業醫師協助。
+                本服務由 AI 提供 <span class="font-bold">器材訓練</span> 建議，若有身體不適請尋求專業醫師協助。
             </p>
         </div>
     </footer>
